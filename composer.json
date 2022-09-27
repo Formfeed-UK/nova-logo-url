@@ -1,11 +1,13 @@
 {
     "name": "formfeed-uk/nova-logo-url",
-    "description": "A Laravel Nova asset.",
+    "description": "A Laravel Nova Package for custom App Logo Urls and Links",
+    "homepage": "https://github.com/formfeed-uk/nova-logo-url",
+    "license": "MIT",
     "keywords": [
         "laravel",
-        "nova"
+        "nova",
+        "logo"
     ],
-    "license": "MIT",
     "require": {
         "php": "^7.3|^8.0",
         "laravel/nova": "^4.0"
