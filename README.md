@@ -49,6 +49,18 @@ return [
 
 ### Known Issues
 - Internal links will result in a full page load rather than following an Inertia Link
+- Due to the way Nova loads package scripts, this will not work for the login page, I recommend using your own login (or breeze or similar) and overriding the login links:
+
+```php
+    // config/nova.php
+    'routes' => [
+        'login' => '/login',
+        'logout' => '/logout',
+        'register' => '/register',
+        'forgot_password' => '/forgot_password',
+        'reset_password' => '/reset_password'
+    ],
+```
 
 
 ## License
