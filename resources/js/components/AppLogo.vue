@@ -1,6 +1,9 @@
 <template>
-  <img v-if="logoIsUrl" :src="logoUrl" alt="Logo" :class="logoClass" />
-  <NovaAppLogo v-else v-bind="$props" :class="logoClass" />
+  <div>
+    <img v-if="logoIsUrl" :src="logoUrl" alt="Logo" class="image-logo" :class="logoClass" />
+    <img v-if="darkLogoIsUrl" :src="logoUrlDark" alt="Logo" class="image-logo-dark" :class="logoClass" />
+    <NovaAppLogo v-else v-bind="$props" :class="logoClass" />
+  </div>
 </template>
 
 <script>
@@ -29,29 +32,57 @@ export default {
             return (Nova.appConfig.logoUrl) ? true : false;
         },
 
+        darkLogoIsUrl() {
+            return (Nova.appConfig.logoUrl) ? true : false;
+        },
+
         logoHasLink() {
             return (Nova.appConfig.logoLink) ? true : false;
         },
 
         logoUrl() {
-            if (this.logoIsUrl) {
-                return Nova.appConfig.logoUrl;
-            }
+            return this.logoIsUrl ? Nova.appConfig.logoUrl : "";
+        },
+
+        logoUrlDark() {
+            return this.darkLogoIsUrl ? Nova.appConfig.logoUrlDark :"";
         },
 
         logoLink() {
-            if (this.logoHasLink) {
-                return Nova.appConfig.logoLink;
-            }
+            return this.logoHasLink ? Nova.appConfig.logoLink : "";
         },
 
         logoClass() {
+            let classes = this.$attrs.class;
+
             if (Nova.appConfig.logoClass) {
-                return Nova.appConfig.logoClass;
+                classes = Nova.appConfig.logoClass;
             }
-            return this.$attrs.class;
+            
+            if (this.darkLogoIsUrl) {
+                classes += " theme-switch";
+            }
+
+            return classes;
+
         },
     }
 
 }
 </script>
+
+<style scoped>
+
+    .image-logo-dark.theme-switch {
+        display: none;
+    }
+
+    html.dark .image-logo.theme-switch {
+        display: none;
+    }
+
+    html.dark .image-logo-dark.theme-switch {
+        display: block;
+    }
+
+</style>
