@@ -2,7 +2,7 @@
   <div>
     <img v-if="logoIsUrl" :src="logoUrl" alt="Logo" class="image-logo" :class="logoClass" />
     <img v-if="darkLogoIsUrl" :src="logoUrlDark" alt="Logo" class="image-logo-dark" :class="logoClass" />
-    <NovaAppLogo v-else v-bind="$props" :class="logoClass" />
+    <NovaAppLogo v-if="!logoIsUrl && !darkLogoIsUrl" v-bind="$props" :class="logoClass" />
   </div>
 </template>
 
