@@ -20,8 +20,9 @@ class AssetServiceProvider extends ServiceProvider
             Nova::style('nova-logo-url', __DIR__.'/../dist/css/asset.css');
 
             Nova::provideToScript([
-                "logoUrl" => config("nova.brand.logo_url", false),
-                "logoLink" => config("nova.brand.logo_link", false),
+                "logoUrl" => config("nova.brand.logo_url", config("nova.brand.logo_src", false)),
+                "logoUrlDark" => config("nova.brand.logo_url_dark", config("nova.brand.logo_src_dark", false)),
+                "logoLink" => config("nova.brand.logo_link", config("nova.brand.logo_href", false)),
                 "logoClass" => config("nova.brand.logo_class", false),
             ]);
         });

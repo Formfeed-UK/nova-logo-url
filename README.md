@@ -10,6 +10,7 @@ This [Laravel Nova](https://nova.laravel.com/) package adds the ability to set a
 ## Features
 
 - Custom Logo URL
+- Custom Dark Mode logo URL
 - Custom Logo Link Url
 - Custom Logo Class
 
@@ -36,8 +37,9 @@ return [
 
     'brand' => [
         ...
-        'logo_url' => 'https://mydomain.com/img/mylogo.png',
-        'logo_link' => 'https://google.com',
+        'logo_src' => 'https://mydomain.com/img/mylogo.png',
+        'logo_src_dark' => 'https://mydomain.com/img/mylogo-dark.png', // optional
+        'logo_href' => 'https://google.com',
         'logo_class' => 'h-10',
         ...
     ]
@@ -45,6 +47,15 @@ return [
 ...
 
 ]
+```
+
+### Deprecated Configuration Options
+
+Please note that as of 2.0.0 the following configuration options are now deprecated, and will be removed in a future release, please see the new configuration options above.
+
+```
+'logo_url'
+'logo_link'
 ```
 
 ### Known Issues
