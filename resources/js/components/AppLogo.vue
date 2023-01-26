@@ -33,7 +33,7 @@ export default {
         },
 
         darkLogoIsUrl() {
-            return (Nova.appConfig.logoUrl) ? true : false;
+            return (Nova.appConfig.logoUrlDark) ? true : false;
         },
 
         logoHasLink() {
